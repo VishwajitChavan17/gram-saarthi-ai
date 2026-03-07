@@ -1,0 +1,76 @@
+/* Global Stylesheet for GramSaarthi - Trust & Authority Theme */
+
+@layer base {
+  :root {
+    --gov-blue: #11486B;
+    --gov-blue-light: #1B5E8B;
+    --gov-saffron: #FF9933;
+    --gov-grey: #E2E8F0;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #F3F4F6;
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --border-color: #CBD5E1;
+  }
+
+  body {
+    @apply bg-gray-100 text-slate-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  /* Global Strictness: No soft rounded corners or shadows */
+  .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-md {
+    border-radius: 2px !important;
+  }
+
+  .shadow-sm, .shadow, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: none !important;
+    border: 1px solid var(--border-color);
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: var(--gov-blue);
+}
+
+/* Form Elements */
+input, select, textarea {
+  border-radius: 2px !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 10px 14px !important;
+}
+
+input:focus, select:focus {
+  outline: none !important;
+  border-color: var(--gov-blue) !important;
+  ring: 0 !important;
+}
+
+/* Buttons */
+button {
+  border-radius: 2px !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: none !important;
+}
+
+button:hover {
+  transform: none !important;
+  opacity: 0.9;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--gov-blue);
+  border-radius: 2px;
+}
