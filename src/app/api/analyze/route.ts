@@ -57,10 +57,14 @@ export async function POST(request: Request) {
       return NextResponse.json({
         status: 'success',
         message: 'Recommendations generated from profile analysis.',
-        scheme: topRecommendation.name,
-        eligibility: topRecommendation.eligibilityText,
-        profileReceived: profile,
-        recommendations,
+        ai_explanation: `Based on your profile as a ${profile.occupation} in ${profile.state}, you are highly likely to qualify for several key welfare schemes. We recommend focusing on ${topRecommendation.name} which offers significant ${topRecommendation.benefits}.`,
+        recommended_schemes: recommendations.map(rec => ({
+          scheme_name: rec.name,
+          description: rec.benefits,
+          confidence: (rec.score / 15), // Normalize score to 0-1 range roughly
+          reason: rec.reason
+        })),
+        profileReceived: profile
       });
     }
 

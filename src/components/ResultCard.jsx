@@ -34,6 +34,9 @@ function ResultCard({ result }) {
     ? result.recommended_schemes
     : [];
 
+  // ai_explanation comes from Gemini via Lambda
+  const aiExplanation = result.ai_explanation || null;
+
   return (
     <div className="space-y-4">
       <Card className="border-primary/10 bg-white shadow-xl shadow-primary/5 transition-all duration-300">
@@ -56,6 +59,22 @@ function ResultCard({ result }) {
         </CardHeader>
 
         <CardContent>
+
+          {/* ✅ Gemini AI Explanation Box */}
+          {aiExplanation ? (
+            <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-4 flex gap-3 items-start">
+              <span className="text-2xl mt-0.5">🤖</span>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-emerald-700 font-semibold mb-1">
+                  GramSaarthi AI says
+                </p>
+                <p className="text-sm text-emerald-900 leading-relaxed">
+                  {aiExplanation}
+                </p>
+              </div>
+            </div>
+          ) : null}
+
           {recommendedSchemes.length === 0 ? (
             <div className="rounded-2xl bg-primary/5 p-4 border border-primary/10">
               <p className="text-sm text-foreground leading-relaxed">
