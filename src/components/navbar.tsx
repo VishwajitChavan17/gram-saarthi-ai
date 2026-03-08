@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAuth } from '@/app/providers';
 import { Button } from '@/components/ui/button';
 
@@ -16,8 +17,14 @@ export function Navbar() {
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-primary/20">
-                G
+              <div className="relative h-10 w-10 overflow-hidden rounded-xl shadow-lg shadow-primary/20">
+                <Image
+                  src="/jansetu logo (1).png"
+                  alt="Jansetu logo"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
               <span className="text-2xl font-bold tracking-tight text-foreground">
                 Gram<span className="text-primary">Saarthi</span>
